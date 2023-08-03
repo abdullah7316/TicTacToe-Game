@@ -105,10 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 1; i < 10; ++i) {
         boxArray[i].addEventListener('click', function () {
             boxArray[i].innerText = turn;
-            if (checkDraw()) {
-                gameDraw();
-            } else if (checkWin()) {
+            if (checkWin()) {
                 gameWin();
+            } else if (checkDraw()) {
+                gameDraw();
             } else {
                 changeTurn();
             }
