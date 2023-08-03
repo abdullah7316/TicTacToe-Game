@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showTurn();
         for (let i = 1; i < 10; ++i) {
             let Box = document.getElementById(`Box${i}`)
-            Box.style.backgroundColor = 'white'
+            Box.style.color = 'black'
             Box.innerText = ''
             boxArray[i] = Box; //saving the path of each box
         }
@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if ((boxAText === boxBText) && (boxBText === boxCText)) {
                 if ((boxAText === 'O') || (boxAText === 'X')) {
-                    boxA.style.backgroundColor = 'lightgreen'
-                    boxB.style.backgroundColor = 'lightgreen'
-                    boxC.style.backgroundColor = 'lightgreen'
+                    boxA.style.color = 'rgb(7, 206, 7)'
+                    boxB.style.color = 'rgb(7, 206, 7)'
+                    boxC.style.color = 'rgb(7, 206, 7)'
                     return true;
                 }
             }
@@ -105,13 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 1; i < 10; ++i) {
         boxArray[i].addEventListener('click', function () {
             clickAudio.play();
-            boxArray[i].innerText = turn;
-            if (checkWin()) {
-                gameWin();
-            } else if (checkDraw()) {
-                gameDraw();
-            } else {
-                changeTurn();
+            if (boxArray[i].innerText === '') {
+
+                boxArray[i].innerText = turn;
+                if (checkWin()) {
+                    gameWin();
+                } else if (checkDraw()) {
+                    gameDraw();
+                } else {
+                    changeTurn();
+                }
+            }else{
+                alert('Please select an empty box. This one is already filled.')
             }
         })
     }
