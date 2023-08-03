@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    let clickAduio = document.getElementById('click-audio');
+    let clickAudio = document.getElementById('click-audio');
     let boxArray = [];
     boxArray[0] = 0;
     let resetBtn = document.getElementById('reset-btn')
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //Each Box Click Event Function
     for (let i = 1; i < 10; ++i) {
         boxArray[i].addEventListener('click', function () {
+            clickAudio.play();
             boxArray[i].innerText = turn;
             if (checkWin()) {
                 gameWin();
